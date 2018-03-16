@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Untitled Document</title>
+
+          <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+
+          <style>
+               body {
+                    font-family:verdana;
+               }
+
+               div {
+                    display:none;
+               }
+          </style>
+     </head>
+
+     <body>
+          <input type="button" value="A">
+          <input type="button" onClick="display(this.value)" value="B">
+          <input type="button" onClick="display(this.value)" value="C">
+          <input type="button" onClick="display(this.value)" value="D">
+          <input type="button" onClick="display(this.value)" value="E">
+          <input type="button" onClick="display(this.value)" value="F">
+          <input type="button" onClick="display(this.value)" value="G">
+          <input type="button" onClick="display(this.value)" value="H">
+          <input type="button" onClick="display(this.value)" value="I">
+          <input type="button" onClick="display(this.value)" value="J">
+          <input type="button" onClick="display(this.value)" value="K">
+          <input type="button" onClick="display(this.value)" value="L">
+          <input type="button" onClick="display(this.value)" value="M">
+          <input type="button" onClick="display(this.value)" value="N">
+          <input type="button" onClick="display(this.value)" value="O">
+          <input type="button" onClick="display(this.value)" value="P">
+          <input type="button" onClick="display(this.value)" value="Q">
+          <input type="button" onClick="display(this.value)" value="R">
+          <input type="button" onClick="display(this.value)" value="S">
+          <input type="button" onClick="display(this.value)" value="T">
+          <input type="button" onClick="display(this.value)" value="U">
+          <input type="button" onClick="display(this.value)" value="V">
+          <input type="button" onClick="display(this.value)" value="W">
+          <input type="button" onClick="display(this.value)" value="X">
+          <input type="button" onClick="display(this.value)" value="Y">
+          <input type="button" onClick="display(this.value)" value="Z">
+
+          <br><br>
+
+          <div class="a">- ANGSA</div>
+          <div class="a">- ANJING</div>
+          <div class="a">- ANOA</div>
+          <div class="b">- BABI</div>
+          <div class="b">- BADAK</div>
+          <div class="b">- BAJING</div>
+          <div class="c">- CACING</div>
+          <div class="c">- CAMAR</div>
+          <div class="c">- CAPUNG</div>
+          <div class="d">- DARA</div>
+          <div class="d">- DOMBA</div>
+          <div class="d">- DUYUNG</div>
+
+          <script type="text/javascript">
+               $(function() {
+                    $('input[type=button]').click(
+                    function() {
+                         $('div').hide();
+                         $('div.'+$(this).val().toLowerCase()).show();
+                         $('input[type=button]').removeAttr('style');
+                         $(this).css('background-color', 'red');
+                         $(this).css('border', 'solid 1px #262626');
+                         $(this).css('color', 'white');
+                         $(this).css('font-weight', 'bold');
+                    });
+               });
+          </script>
+     </body>
+</html>

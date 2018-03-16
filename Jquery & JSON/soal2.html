@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Untitled Document</title>
+          <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+
+          <style>
+               body {
+                    font-family:verdana;
+               }
+
+               label {
+                    color:#B81013;
+                    font-weight:bold;
+               }
+
+               form {
+                    border: solid 1px #262626;
+                    padding:20px;
+                    width:470px;
+                    background-color:#f5f5f5;
+               }
+          </style>
+     </head>
+
+     <body>
+          <form>
+               <label>Nama : </label>
+               <input type="text" name="nama" id="nama"><br><br>
+
+               <label>NIM : &nbsp;</label>
+               <input type="text" name="nim" id="nim"><br><br>
+
+               <label>Kelas : </label>
+               <input type="text" name="kelas" id="kelas"><br><br>
+
+               <label>Jenis Kelamin : </label>
+               <input type="radio" name="jk" value="Laki-Laki"> Laki-Laki &nbsp;
+               <input type="radio" name="jk" value="Perempuan"> Peremupan<br><br>
+
+               <button type="button" onClick="saving()">Simpan</button>
+          </form><br>
+
+          <table border="1" cellpadding="5">
+               <thead>
+                    <tr>
+                         <th>Nama</th>
+                         <th>NIM</th>
+                         <th>Kelas</th>
+                         <th>Jenis Kelamin</th>
+                         <th>Action</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                         <td>Mystogan</td>
+                         <td>1103120243</td>
+                         <td>IF-40-03</td>
+                         <td>Laki-Laki</td>
+                         <td><input type="button" value="Hapus"></td>
+                    </tr>
+               </tbody>
+          </table>
+
+          <script type="text/javascript">
+               $(function() {
+                    $('body').on('click', '.hapus',
+                    function() {
+                         if(confirm('Apakah yakin akan menghapus baris ini ?'))
+                              $(this).parents("tr").remove();
+                    });
+               });
+
+               function saving() {
+                    var html = '<tr><td>'+
+                    $('#nama').val() +'</td><td>'+
+                    $('#nim').val() +'</td><td>'+
+                    $('#kelas').val() +'</td><td>'+
+                    $('input[name=jk]:checked').val()+'</td><td><input type="button" class="hapus" value="Hapus"></td></tr>';
+                    $('tbody').append(html);}
+          </script>
+     </body>
+</html>

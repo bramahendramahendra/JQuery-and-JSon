@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Untitled Document</title>
+          <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+          <style>
+               body {
+                    font-family:arial;
+               }
+               .block {
+                    background-color:#009688;
+                    width:235px;
+                    padding:20px;
+                    border:solid 1px #666;
+               }
+               .btn {
+                    width:50px;
+                    height:50px;
+                    font-size:25px;
+                    border:0px;
+                    margin:0px 5px 5px 0px;
+               }
+               .btn1 {
+                    background-color:#212121;
+                    color:#FFFFFF;
+               }
+               .btn2 {
+                    background-color:#616161;
+                    color:#FFFFFF;
+               }
+               .btnres {
+                    background-color:#64DD17;
+               }
+               .btn0 {
+                    width:110px;
+                    background-color:#212121;
+                    color:#FFFFFF;
+               }
+               .display {
+                    font-size:25px;
+                    font-weight:700;
+                    background-color:#80CBC4;
+                    color:#212121;
+                    border:0px;
+                    margin-bottom:5px;
+                    width:216px;
+                    padding:6px;
+               }
+          </style>
+     </head>
+
+     <body>
+          <div class="block">
+               <div>
+                    <input type="text" class="display" id="display">
+               </div>
+
+               <div>
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="7">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="8">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="9">
+                    <input type="button" class="btn btn2" onClick="minus()" value="-">
+               </div>
+               <div>
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="4">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="5">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="6">
+                    <input type="button" class="btn btn2" onClick="kali()" value="x">
+               </div>
+               <div>
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="1">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="2">
+                    <input type="button" class="btn btn1" onClick="set(this.value)" value="3">
+                    <input type="button" class="btn btn2" onClick="bagi()" value="/">
+               </div>
+               <div>
+                    <input type="button" class="btn btn0" onClick="set(this.value)" value="0">
+                    <input type="button" class="btn btnres" onClick="res()" value="=">
+                    <input type="button" class="btn btn2" onClick="plus()" value="+">
+               </div>
+          </div>
+
+          <script type="text/javascript">
+               $(function() {
+
+               });
+               var inp1 = 0;
+               var inp2 = 0;
+               var operator = '';
+               function set(a) {
+                    if(operator == 'res')
+                         $('#display').val(a);
+                    else
+                         $('#display').val($('#display').val() + a);
+               }
+
+               function plus() {
+                    operator = 'plus';
+                    inp1 = $('#display').val();
+                    $('#display').val('');
+               }
+
+               function minus() {
+                    operator = 'minus';
+                    inp1 = $('#display').val();
+                    $('#display').val('');
+               }
+
+               function kali() {
+                    operator = 'kali';
+                    inp1 = $('#display').val();
+                    $('#display').val('');
+               }
+
+               function bagi() {
+                    operator = 'bagi';
+                    inp1 = $('#display').val();
+                    $('#display').val('');
+               }
+
+               function res() {
+                    if(operator != '' && operator != 'res') {
+                         inp2 = $('#display').val();
+                         if(operator == 'plus')
+                              var result = parseInt(inp1) + parseInt(inp2);
+                         else if(operator == 'minus')
+                              var result = parseInt(inp1) - parseInt(inp2);
+                         else if(operator == 'bagi')
+                              var result = parseInt(inp1) / parseInt(inp2);
+                         else if(operator == 'kali')
+                              var result = parseInt(inp1) * parseInt(inp2);
+                         $('#display').val(result);
+                         operator = 'res';
+                    }
+               }
+          </script>
+</body>
+</html>
